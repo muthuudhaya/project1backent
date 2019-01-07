@@ -10,8 +10,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
-
-public class DBconfig 
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
+@Configuration
+@EnableTransactionManagement
+@Component("com.niit")
+class DBconfig 
 {
  @Bean(name="datasource")	
  public DataSource getH2DataSource()
@@ -24,7 +28,7 @@ public class DBconfig
 	 System.out.println("Datasource created");
 	 return datasource;
  }
- @Bean(name="sessionFactory")
+ @Bean(name="sessionfactory")
  public SessionFactory getSessionFactory()
  {
 	Properties hibernateprop= new Properties();

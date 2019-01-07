@@ -9,7 +9,6 @@ public class GeneralTest {
      AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
      context.scan("com.project");
      context.refresh();
-     context.close();
 	}
 
 }
