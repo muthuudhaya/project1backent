@@ -12,6 +12,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import com.project.model.Category;
 @Configuration
 @EnableTransactionManagement
 @Component("com.niit")
@@ -36,6 +38,7 @@ class DBconfig
 	hibernateprop.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
 	LocalSessionFactoryBuilder buildfactory = new LocalSessionFactoryBuilder(getH2DataSource());
 	buildfactory.addProperties(hibernateprop);
+	buildfactory.addAnnotatedClass(Category.class);
 	System.out.println("Sessionfactory created");
 	return buildfactory.buildSessionFactory();
  }
