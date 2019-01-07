@@ -1,14 +1,11 @@
 package com.project.dao;
-
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.project.model.Category;
 
 @Repository("categoryDAO")
@@ -30,8 +27,7 @@ public class CategoryDAOImpl implements CategoryDAO
 		return false;
 		}
 	}
-
-	@Override
+    @Override
 	public boolean deleteCategory(Category category) 
 	{
 		try 
@@ -44,8 +40,7 @@ public class CategoryDAOImpl implements CategoryDAO
 		return false;
 		}
 	}
-
-	@Override
+    @Override
 	public boolean updateCategory(Category category) 
 	{
 		try 
@@ -59,15 +54,13 @@ public class CategoryDAOImpl implements CategoryDAO
 		}	
 		
 	}
-
-	@Override
+    @Override
 	public List<Category> listCategories() 
 	{
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Category");
 		List<Category> listCategories = query.list();
 		return listCategories;
-		
 	}
 
 	@Override
