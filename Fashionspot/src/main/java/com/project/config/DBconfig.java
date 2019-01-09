@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.project.model.Category;
+import com.project.model.Supplier;
 @Configuration
 @EnableTransactionManagement
 @Component("com.niit")
@@ -39,6 +40,7 @@ class DBconfig
 	LocalSessionFactoryBuilder buildfactory = new LocalSessionFactoryBuilder(getH2DataSource());
 	buildfactory.addProperties(hibernateprop);
 	buildfactory.addAnnotatedClass(Category.class);
+	buildfactory.addAnnotatedClass(Supplier.class);
 	System.out.println("Sessionfactory created");
 	return buildfactory.buildSessionFactory();
  }
